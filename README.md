@@ -167,10 +167,10 @@ Let's use DocArray and the [Totally Looks Like](https://sites.google.com/view/to
 </thead>
 <tbody>
   <tr align="center">
-    <td><img src="https://github.com/jina-ai/docarray/blob/main/.github/README-img/left-00018.jpg?raw=true" alt="Visualizing top-9 matches using DocArray API" width="50%"></td>
-    <td><img src="https://github.com/jina-ai/docarray/blob/main/.github/README-img/right-00018.jpg?raw=true" alt="Visualizing top-9 matches using DocArray API" width="50%"></td>
-    <td><img src="https://github.com/jina-ai/docarray/blob/main/.github/README-img/left-00131.jpg?raw=true" alt="Visualizing top-9 matches using DocArray API" width="50%"></td>
-    <td><img src="https://github.com/jina-ai/docarray/blob/main/.github/README-img/right-00131.jpg?raw=true" alt="Visualizing top-9 matches using DocArray API" width="50%"></td>
+    <td><img src="https://github.com/docarray/docarray/blob/main/.github/README-img/left-00018.jpg?raw=true" alt="Visualizing top-9 matches using DocArray API" width="50%"></td>
+    <td><img src="https://github.com/docarray/docarray/blob/main/.github/README-img/right-00018.jpg?raw=true" alt="Visualizing top-9 matches using DocArray API" width="50%"></td>
+    <td><img src="https://github.com/docarray/docarray/blob/main/.github/README-img/left-00131.jpg?raw=true" alt="Visualizing top-9 matches using DocArray API" width="50%"></td>
+    <td><img src="https://github.com/docarray/docarray/blob/main/.github/README-img/right-00131.jpg?raw=true" alt="Visualizing top-9 matches using DocArray API" width="50%"></td>
   </tr>
 </tbody>
 </table>
@@ -190,7 +190,7 @@ left_da = DocumentArray.from_files('left/*.jpg')
 Or you can simply pull it from Jina Cloud:
 
 ```python
-left_da = DocumentArray.pull('demo-leftda', show_progress=True)
+left_da = DocumentArray.pull('jina-ai/demo-leftda', show_progress=True)
 ```
 
 **Note**
@@ -206,7 +206,7 @@ left_da.plot_image_sprites()
 ```
 
 <p align="center">
-<a href="https://docarray.jina.ai"><img src="https://github.com/jina-ai/docarray/blob/main/.github/README-img/sprite.png?raw=true" alt="Load totally looks like dataset with docarray API" width="60%"></a>
+<a href="https://docarray.jina.ai"><img src="https://github.com/docarray/docarray/blob/main/.github/README-img/sprite.png?raw=true" alt="Load totally looks like dataset with docarray API" width="60%"></a>
 </p>
 
 ### Apply preprocessing
@@ -252,7 +252,7 @@ left_da.plot_embeddings(image_sprites=True)
 ```
 
 <p align="center">
-<a href="https://docarray.jina.ai"><img src="https://github.com/jina-ai/docarray/blob/main/.github/README-img/tsne.gif?raw=true" alt="Visualizing embedding via tSNE and embedding projector" width="90%"></a>
+<a href="https://docarray.jina.ai"><img src="https://github.com/docarray/docarray/blob/main/.github/README-img/tsne.gif?raw=true" alt="Visualizing embedding via tSNE and embedding projector" width="90%"></a>
 </p>
 
 Fun is fun, but recall our goal is to match left images against right images and so far we have only handled the left. Let's repeat the same procedure for the right:
@@ -268,7 +268,7 @@ Fun is fun, but recall our goal is to match left images against right images and
 
 ```python
 right_da = (
-    DocumentArray.pull('demo-rightda', show_progress=True)
+    DocumentArray.pull('jina-ai/demo-rightda', show_progress=True)
     .apply(preproc)
     .embed(model, device='cuda')[:1000]
 )
@@ -398,7 +398,7 @@ left_da.push('my_shared_da')
 Now anyone who knows the token `my_shared_da` can pull and work on it.
 
 ```python
-left_da = DocumentArray.pull('my_shared_da')
+left_da = DocumentArray.pull('<username>/my_shared_da')
 ```
 
 Intrigued? That's only scratching the surface of what DocArray is capable of. [Read our docs to learn more](https://docarray.jina.ai).
